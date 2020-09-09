@@ -12,14 +12,14 @@ I try to implement some of data structures and algorithms that I have been learn
 
 ## About the Library
 - The library is written in C++, placed in `experimental` namespace and stored in `./inc/`
-- There is an unit test for each type of data structures and sorting algorithms, which can be found in ``, to evaluate the correctness of the implimentation.
+- There is an unit test for each type of data structures and sorting algorithms, which can be found in `./ut`, to evaluate the correctness of the implementation.
 
 ### Data Structures
-- [vector](./inc/ds/experimental_vector.hpp): automatically-resized container in which elements are store contiguously.
+- [vector](./inc/ds/experimental_vector.hpp): automatically-resized container in which elements are stored contiguously.
 - [stack](./inc/ds/experimental_stack.hpp): FIFO data structure that supports `push` elements to and `pop` elements from the end.
 - [list](./inc/ds/experimental_list.hpp): container that supports insertion and removal of elements at anywhere in the container.    
 In this library, `list` is implemented as a doubly-linked list.
-- [binary search tree](./inc/ds/experimental_binary_search_tree.hpp): tree data structure in which a node can only have at max two children. The value of a node is greater than value of any nodes from the left subtree and smaller than value of any nodes from the right subtree.   
+- [binary search tree](./inc/ds/experimental_binary_search_tree.hpp): tree data structure in which a node can only have at max two children. The value of a node is greater than value of any nodes from the left subtree and less than value of any nodes from the right subtree.   
 In this library, `binary search tree` does not store duplicates.
 - [avl tree](./inc/ds/experimental_avl_tree.hpp): auto-balancing binary search tree.   
 In this library, `avl tree` does not store duplicates.
@@ -34,13 +34,13 @@ In this library, `binary heap` is defaulted as a **min heap** and supports dupli
 - [quick sort](./inc/sorts/experimental_quick_sort.hpp): strategy of picking pivot is to select the median of the three: `arr[left], arr[center], arr[right]`
 
 ### Unit Tests
-Each unit test is a function that returns `true` if the test is passed, `false` otherwise. And the macro `_RUN_UNIT_TEST_(X)` is designed to run a specific unit test and output the result to console.
+Each unit test is a function that returns `true` if the test is passed, `false` otherwise. And the macro `_RUN_UNIT_TEST_(X)` is designated to run a specific unit test and output the result to console.
 
 ## Sorting Algorithm Benchmark
-Test and time the running time between sorting algorithms with various inputs.  
+Test and time the running time of sorting algorithms with various inputs.  
 The sorting algorithms that are benchmarked are:   
-- Shell sort
 - Heap sort
+- Shell sort
 - Merge sort
 - Quick sort
 
@@ -48,11 +48,11 @@ All the code that is used to generate the benchmark inputs as well as run the te
 
 ### Inputs
 There are three main inputs that are used to benchmark, which are only integer numbers.    
-- **Small keys**: Inputs that contains only a few unique keys. The unique keys account for one percentage (**1%**) of the input's size.    
-- **Unique keys**: Inputs that contains unique keys (no duplicate).
+- **Small keys**: Inputs that contain only a few unique keys. The unique keys account for one percentage (**1%**) of the input's size.    
+- **Unique keys**: Inputs that contain unique keys (no duplicate).
 - **Normal distributed keys**: Inputs that are generated from C++ standard normal distribution generator.    
 
-For the first two type of inputs, there are four properties that are combined with: 
+For the first two types of inputs, there are four properties that are combined with: 
 - **Sorted**: The list is sorted in ascending order.
 - **Reversed sorted**: The list is sorted in descending order.
 - **Almost sorted**: The list is sorted then suffled. The percentage of numbers that are suffled is five percentage (**5%**) of the input's size.
@@ -71,14 +71,14 @@ For the normal distributed inputs, there are two properties that are combined wi
 </details>
 
 ### Setup
-There are five different generated list for each type of input. Each list is run once and the average result is calculated.   
+There are five different generated lists for each type of inputs. Each list is run once and the average of five results is calculated.   
 
-To measure the running time, `std::chrono::high_resolution_clock` from C++ standard library is called before and after a sorting function call.
+To measure the running time, `std::chrono::high_resolution_clock` from C++ standard library is called before and after a sorting function's call.
 
 All the tests were run in a laptop with CPU of **1.8 Ghz** (no boosting technology).
 
 ### Results
-Execution time are given in **microseconds**.
+Execution times are given in **microseconds**.
 
 #### Heap sort
 - Small keys   
@@ -267,8 +267,8 @@ Execution time are given in **microseconds**.
 
 ## To do
 - Implement some special sorting algorithms like radix sort.
-- Try to implement multi-threading shell sort since it seems like to be able to do so.
+- Try to implement multi-threading shell sort since it seems to be able to do so.
 
 ## Acknowledgement
 - Thanks to **Data Structures And Algorithm Analysis in C++ (4th ed) - Mark Allen Weiss** book for detailed explanation about those data structures and algorithms.
-- Special thanks to my laptop for keeping sane in about an hour to generate sorting benchmark inputs and about another three hours straight to run those tests.
+- Special thanks to my laptop for keeping its sanity in about an hour to generate sorting benchmark inputs and about three hours straight to run those tests.
